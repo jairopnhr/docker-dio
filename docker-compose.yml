@@ -1,0 +1,12 @@
+services:
+  web:
+    image: httpd:latest
+    container_name: apache_server
+    ports:
+      - "8080:80"  
+    environment:
+      - APACHE_LOG_DIR=/usr/local/apache2/logs
+    volumes:
+      - ./src:/usr/local/apache2/htdocs/  
+      - ./logs:/usr/local/apache2/logs/  
+    restart: always  
